@@ -22,7 +22,7 @@ The **Quick Notes** bookmarklet allows you to take quick notes directly in your 
 
 ## 📺 Demo
 
-<video width="1280" height="1080" height= controls>
+<video width="800" height="600" controls>
   <source src="./assets/demo.mp4" type="video/mp4">
 </video>
 
