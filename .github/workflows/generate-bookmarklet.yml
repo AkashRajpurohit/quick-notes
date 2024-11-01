@@ -22,18 +22,11 @@ jobs:
         with:
           node-version: 22
 
-      - name: Generate bookmarklet code
-        id: generate
-        run: |
-          # Run the generate-bookmarklet.js script and capture its output
-          bookmarklet=$(node scripts/generate-bookmarklet.js)
-          # Save the bookmarklet to output for the next step
-          echo "bookmarklet=$bookmarklet" >> $GITHUB_OUTPUT
-
       - name: Update README
         run: |
+          bookmarklet=$(node scripts/generate-bookmarklet.js)
           # Replace the href in the <a> tag with the new bookmarklet code
-          sed -i "s|<a id='bookmarklet-link' href=\"[^\"]*\"|<a id='bookmarklet-link' href=\"$bookmarklet\"|" README.md
+          sed -i "s|<a id='bookmarklet-link' href=\"[^\"]*\"|<a id='bookmarklet-link' href=\"${bookmarklet}\"|" README.md
 
       - name: Commit and Push 🚀
         if: always()
