@@ -22,7 +22,7 @@ The **Quick Notes** bookmarklet allows you to take quick notes directly in your 
 
 ## 📺 Demo
 
-<video width="800" height="600" controls>
+<video width="100%" controls>
   <source src="./assets/demo.mp4" type="video/mp4">
 </video>
 
@@ -36,7 +36,7 @@ https://github.com/user-attachments/assets/70ce1928-8761-4854-8fe2-4ead6f4e297c
 > [!NOTE]\
 > Open the docs page to view the clickable bookmarklet link.
 > 
-> https://akashrajpurohit.github.io/quick-notes/#bookmarklet-link
+> https://akashrajpurohit.github.io/quick-notes/#-how-to-add-the-bookmarklet
 
 ---
 
