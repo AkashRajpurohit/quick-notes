@@ -4,7 +4,7 @@
 <div align="center" width="100%">
     <h2>✍🏽 Quick notes</h2>
     <p>A simple bookmarklet for adding notes directly in your browser.</p>
-    <img alt="Visitors count" src="https://visitor-badge.laobi.icu/badge?page_id=@akashrajpurohit~quick-notes.visitor-badge&style=flat-square">
+    <img alt="Visitors count" src="https://api.visitorbadge.io/api/VisitorHit?user=AkashRajpurohit&repo=quick-notes&style=flat-square">
     <a href="https://github.com/AkashRajpurohit/quick-notes/actions/workflows/pages/pages-build-deployment"><img src="https://github.com/AkashRajpurohit/quick-notes/actions/workflows/pages/pages-build-deployment/badge.svg"></a>
     <a target="_blank" href="https://github.com/AkashRajpurohit/quick-notes"><img src="https://img.shields.io/github/stars/AkashRajpurohit/quick-notes" /></a>
     <br />
