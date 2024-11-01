@@ -1,0 +1,39 @@
+name: Update README with Bookmarklet
+
+on:
+  push:
+    paths:
+      - 'bookmarklet.js'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate bookmarklet code
+        id: generate
+        run: |
+          # Read and minify the JavaScript from the bookmarklet file
+          code=$(<bookmarklet.js)
+          bookmarklet="javascript:"$(node -e "console.log(encodeURIComponent('(function() {' + \`$code\`.trim() + '})();'));")
+
+          # Save the bookmarklet code to the GitHub Action output
+          echo "::set-output name=bookmarklet::$bookmarklet"
+
+      - name: Update README
+        run: |
+          # Replace the href in the <a> tag with the new bookmarklet code
+          sed -i "s|<a id='bookmarklet-link' href=\"[^\"]*\"|<a id='bookmarklet-link' href=\"$bookmarklet\"|" README.md
+
+      - name: Commit and Push 🚀
+        if: always()
+        uses: stefanzweifel/git-auto-commit-action@v5.0.1
+        with:
+          commit_message: 'docs: :memo: bookmarklet link updated'
+          commit_user_name: FindingAkash
+          commit_user_email: bot@akashrajpurohit.com
+          commit_author: FindingAkash <bot@akashrajpurohit.com>
