@@ -25,7 +25,7 @@ jobs:
           # Run the generate-bookmarklet.js script and capture its output
           bookmarklet=$(node scripts/generate-bookmarklet.js)
           # Save the bookmarklet to output for the next step
-          echo "::set-output name=bookmarklet::$bookmarklet"
+          echo "bookmarklet=$bookmarklet" >> $GITHUB_OUTPUT
 
       - name: Update README
         run: |
