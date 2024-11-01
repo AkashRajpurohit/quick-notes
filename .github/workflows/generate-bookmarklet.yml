@@ -17,11 +17,13 @@ jobs:
       - name: Generate bookmarklet code
         id: generate
         run: |
-          # Read and minify the JavaScript from the bookmarklet file
-          code=$(<bookmarklet.js)
-          bookmarklet="javascript:"$(node -e "console.log(encodeURIComponent('(function() {' + \`$code\`.trim() + '})();'));")
+          # Read and clean up JavaScript code from bookmarklet.js, removing newlines and extra spaces
+          code=$(tr -d '\n' < bookmarklet.js | sed 's/  */ /g')
 
-          # Save the bookmarklet code to the GitHub Action output
+          # Encode it into a bookmarklet format
+          bookmarklet="javascript:"$(node -e "console.log(encodeURIComponent('(function() {' + \`$code\`.replace(/\`/g, '\\`') + '})();'))")
+
+          # Set the bookmarklet as output for later steps
           echo "::set-output name=bookmarklet::$bookmarklet"
 
       - name: Update README
