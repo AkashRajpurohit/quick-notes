@@ -22,7 +22,7 @@ The **Quick Notes** bookmarklet allows you to take quick notes directly in your 
 
 ## 📺 Demo
 
-![Demo Video](./assets/demo.mp4)
+https://github.com/user-attachments/assets/70ce1928-8761-4854-8fe2-4ead6f4e297c
 
 ## 👨🏻‍💻 How to Add the Bookmarklet
 
