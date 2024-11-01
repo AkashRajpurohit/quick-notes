@@ -14,16 +14,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
       - name: Generate bookmarklet code
         id: generate
         run: |
-          # Read and clean up JavaScript code from bookmarklet.js, removing newlines and extra spaces
-          code=$(tr -d '\n' < bookmarklet.js | sed 's/  */ /g')
-
-          # Encode it into a bookmarklet format
-          bookmarklet="javascript:"$(node -e "console.log(encodeURIComponent('(function() {' + \`$code\`.replace(/\`/g, '\\`') + '})();'))")
-
-          # Set the bookmarklet as output for later steps
+          # Run the generate-bookmarklet.js script and capture its output
+          bookmarklet=$(node scripts/generate-bookmarklet.js)
+          # Save the bookmarklet to output for the next step
           echo "::set-output name=bookmarklet::$bookmarklet"
 
       - name: Update README
