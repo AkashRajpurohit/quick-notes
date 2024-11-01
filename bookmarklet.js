@@ -1,9 +1,8 @@
-javascript: (function () {
-  let savedContent = localStorage.getItem('quickNotes') || '';
-  let newWin = window.open();
-  if (newWin) {
-    newWin.document.title = 'Quick Notes';
-    newWin.document.head.innerHTML = `
+let savedContent = localStorage.getItem('quickNotes') || '';
+let newWin = window.open();
+if (newWin) {
+  newWin.document.title = 'Quick Notes';
+  newWin.document.head.innerHTML = `
       <style>
         body {
           font-size: 3em;
@@ -27,15 +26,14 @@ javascript: (function () {
         }
       </style>
     `;
-    newWin.document.body.setAttribute('contenteditable', 'true');
-    newWin.document.body.setAttribute('autofocus', 'true');
-    newWin.document.body.innerHTML = savedContent;
-    newWin.document.body.oninput = function () {
-      localStorage.setItem('quickNotes', newWin.document.body.innerHTML);
-    };
-  } else {
-    alert(
-      'Pop-up blocked! Please allow pop-ups for this site to use the Quick Notes feature.',
-    );
-  }
-});
+  newWin.document.body.setAttribute('contenteditable', 'true');
+  newWin.document.body.setAttribute('autofocus', 'true');
+  newWin.document.body.innerHTML = savedContent;
+  newWin.document.body.oninput = function () {
+    localStorage.setItem('quickNotes', newWin.document.body.innerHTML);
+  };
+} else {
+  alert(
+    'Pop-up blocked! Please allow pop-ups for this site to use the Quick Notes feature.',
+  );
+}
