@@ -20,6 +20,10 @@
 
 The **Quick Notes** bookmarklet allows you to take quick notes directly in your browser. Your notes are saved automatically in your browser's local storage, so you can access them anytime.
 
+## 📺 Demo
+
+![Demo Video](./assets/demo.mov)
+
 ## 👨🏻‍💻 How to Add the Bookmarklet
 
 - Click the link below and drag it to your bookmarks bar.
