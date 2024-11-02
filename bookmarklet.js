@@ -3,29 +3,29 @@ let newWin = window.open();
 if (newWin) {
   newWin.document.title = 'Quick Notes';
   newWin.document.head.innerHTML = `
-      <style>
+    <style>
+      body {
+        font-size: 1.5em;
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 20px;
+        line-height: 1.5;
+        transition: background-color 0.5s, color 0.5s;
+      }
+      @media (prefers-color-scheme: light) {
         body {
-          font-size: 3em;
-          font-family: Arial, Helvetica, sans-serif;
-          margin: 0;
-          padding: 20px;
-          line-height: 1.5;
-          transition: background-color 0.5s, color 0.5s;
+          background-color: #f8f8f8;
+          color: #333;
         }
-        @media (prefers-color-scheme: light) {
-          body {
-            background-color: #f8f8f8;
-            color: #333;
-          }
+      }
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: #1e1e1e;
+          color: #f8f8f8;
         }
-        @media (prefers-color-scheme: dark) {
-          body {
-            background-color: #1e1e1e;
-            color: #f8f8f8;
-          }
-        }
-      </style>
-    `;
+      }
+    </style>
+  `;
   newWin.document.body.setAttribute('contenteditable', 'true');
   newWin.document.body.setAttribute('autofocus', 'true');
   newWin.document.body.innerHTML = savedContent;
