@@ -7,7 +7,9 @@ if (newWin) {
       body {
         font-size: 1.5em;
         font-family: Arial, Helvetica, sans-serif;
-        margin: 0;
+        margin: 0 auto;
+        max-width: 768px;
+        word-wrap: break-word;
         padding: 20px;
         line-height: 1.5;
         transition: background-color 0.5s, color 0.5s;
